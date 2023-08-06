@@ -1,4 +1,4 @@
-export type TRootStackParamList = {
+export type RootStackParamList = {
     Home: undefined
     Auth: undefined
 }

@@ -1,8 +1,8 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import LoginScreen from "../../screens/public/LoginScreen"
-import { TRootStackParamList } from "../../screens/types"
+import { RootStackParamList } from "../../screens/types"
 
-const Stack = createNativeStackNavigator<TRootStackParamList>()
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 const PublickStack: React.FC = () => (
     <Stack.Navigator initialRouteName="Auth">
