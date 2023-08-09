@@ -16,6 +16,7 @@ export const logInUser = createAsyncThunk(
 
 export const loginUserPending = (state: AuthState) => {
     state.loading = "pending"
+    state.error = null
 }
 export const loginUserSuccess = (state: AuthState, action: AnyAction) => {
     state.loading = "succeeded"
