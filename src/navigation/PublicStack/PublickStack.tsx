@@ -1,5 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import LoginScreen from "../../screens/public/LoginScreen"
+import LoginScreen from "../../screens/public/LoginScreen/LoginScreen"
 import { RootStackParamList } from "../../screens/types"
 
 const Stack = createNativeStackNavigator<RootStackParamList>()

@@ -1,6 +1,7 @@
-import React from "react"
-import { Control, Controller } from "react-hook-form"
-import { TextInput } from "react-native"
+import { useColorScheme } from "nativewind"
+import { Control, Controller, FieldError } from "react-hook-form"
+import { TextInput, View } from "react-native"
+import FormInputError from "./FormInputError/FormInputError"
 
 export enum InputMode {
     DECIMAL = "decimal",
@@ -24,19 +25,39 @@ interface IFormInput {
     placeholder?: string
     inputMode?: InputMode
     secureTextEntry?: boolean
+    className?: string
+    error?: FieldError["message"]
 }
-const FormInput: React.FC<IFormInput> = ({ control, name, ...rest }) => {
+const FormInput: React.FC<IFormInput> = ({
+    control,
+    name,
+    className,
+    error,
+    ...rest
+}) => {
+    const { colorScheme } = useColorScheme()
+
     return (
         <Controller
             control={control}
             render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                    className="w-full border-black border-solid border-2 mb-1.5 py-1.5 px-2.5 outline-none"
-                    onBlur={onBlur}
-                    onChangeText={onChange}
-                    value={value}
-                    {...rest}
-                />
+                <View className="w-full">
+                    <TextInput
+                        className={`w-full bg-white dark:bg-transparent text-black dark:text-white  border-solid border h-54 py-1.5 px-2.5 text-default16 outline-none rounded-md ${
+                            !error
+                                ? "border-black dark:border-light focus:border-active"
+                                : "border-error"
+                        }${className ? " " + className : ""}`}
+                        onBlur={onBlur}
+                        onChangeText={onChange}
+                        value={value}
+                        placeholderTextColor={
+                            colorScheme === "dark" ? "#898989" : "#808080"
+                        }
+                        {...rest}
+                    />
+                    <FormInputError error={error || ""} />
+                </View>
             )}
             name={name}
         />

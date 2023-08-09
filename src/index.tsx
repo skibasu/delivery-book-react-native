@@ -1,13 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native"
 import { useAppSelector } from "./app/hooks/useStore"
+import ProtectedStack from "./navigation/PrivateStack/PrivateStack"
 import PublickStack from "./navigation/PublicStack/PublickStack"
-import NoAccessScreen from "./screens/public/NoAccessScreen/NoAccessScreen"
 
-export default function () {
+const Main = () => {
     const token = useAppSelector((state) => state.auth.token)
     return (
         <NavigationContainer>
-            {token ? <NoAccessScreen /> : <PublickStack />}
+            {token ? <ProtectedStack /> : <PublickStack />}
         </NavigationContainer>
     )
 }
+export default Main

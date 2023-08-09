@@ -1,7 +1,17 @@
-import React from "react"
+import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import HomeScreen from "../../screens/public/HomeScreen/HomeScreen"
+import { RootStackParamList } from "../../screens/types"
 
-const PrivateStack = () => {
-    return null
-}
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
-export default PrivateStack
+const ProtectedStack: React.FC = () => (
+    <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+        />
+    </Stack.Navigator>
+)
+
+export default ProtectedStack
