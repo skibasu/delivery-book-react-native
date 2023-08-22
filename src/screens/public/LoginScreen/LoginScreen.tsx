@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context"
 import { useAppSelector } from "../../../app/hooks/useStore"
 import AuthForm from "../../../components/AuthForm/AuthForm"
 import { useAppNavigation } from "../../../app/hooks/useNavigation"
+import { FontAwesome5 } from "@expo/vector-icons"
 
 const LoginScreen = () => {
     const navigation = useAppNavigation()
