@@ -43,7 +43,7 @@ const FormInput: React.FC<IFormInput> = ({
             render={({ field: { onChange, onBlur, value } }) => (
                 <View className="w-full">
                     <TextInput
-                        className={`w-full bg-white dark:bg-transparent text-black dark:text-white  border-solid border h-54 py-1.5 px-2.5 text-default16 outline-none rounded-md ${
+                        className={`w-full bg-white dark:bg-transparent text-black dark:text-white  border-solid border h-54 py-4 px-16 text-default16 outline-none rounded-md ${
                             !error
                                 ? "border-black dark:border-light focus:border-active"
                                 : "border-error"

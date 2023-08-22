@@ -6,6 +6,7 @@ import Button from "../../../components/Button/Button"
 import StyledContainer from "../../../components/StyledContainer/StyledContainer"
 import { logOutUser } from "../../../app/features/auth/authSlice"
 import TextBold from "../../../components/TextBold/TextBold"
+import LogoLight from "../../../components/SVG/logo-light"
 
 const HomeScreen = () => {
     const navigation = useAppNavigation()
@@ -22,14 +23,7 @@ const HomeScreen = () => {
                 justifyContent="center"
                 classes="px-54"
             >
-                <TextBold classes="text-lg" title="Home Screen" />
-                <Button
-                    classes="mt-24"
-                    title="Log Out"
-                    onClick={() => {
-                        dispatch(logOutUser())
-                    }}
-                />
+                <LogoLight />
             </StyledContainer>
         </SafeAreaView>
     )
